@@ -14,6 +14,7 @@ const extensions = [
 module.exports = {
   root: true,
   extends: extensions,
+  parser: '@typescript-eslint/parser',
   parserOptions: {
     project,
   },
@@ -28,7 +29,6 @@ module.exports = {
       },
     },
   },
-  ignorePatterns: ['node_modules/'],
   rules: {
     '@typescript-eslint/consistent-type-imports': [
       'error',
@@ -41,14 +41,18 @@ module.exports = {
         checksVoidReturn: { attributes: false },
       },
     ],
-    'import/no-default-export': 'off',
-  },
-  overrides: [
-    {
-      files: '**/actions.ts',
-      rules: {
-        '@typescript-eslint/require-await': 'off',
+    '@typescript-eslint/restrict-template-expressions': [
+      'error',
+      {
+        allowNumber: true,
       },
-    },
-  ],
+    ],
+    'import/no-default-export': 'off',
+    'react/jsx-sort-props': [
+      'error',
+      {
+        callbacksLast: true,
+      },
+    ],
+  },
 };
