@@ -1,12 +1,12 @@
 const path = require('path');
 
-const runEslint = (filenames) =>
+const lint = (filenames) =>
   `next lint --fix --file ${filenames
     .map((f) => path.relative(process.cwd(), f))
     .join(' --file ')}`;
 
-const runPrettier = 'prettier --write';
+const format = 'prettier --write';
 
 module.exports = {
-  '*.{cjs,mjs,js,jsx,ts,tsx}': [runPrettier, runEslint],
+  '*.{cjs,mjs,js,jsx,ts,tsx,json}': [format, lint],
 };

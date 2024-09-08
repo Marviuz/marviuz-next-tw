@@ -56,4 +56,5 @@ module.exports = {
       },
     ],
   },
+  ignorePatterns: ['prettier.config.mjs', '.eslintrc.cjs', '.lintstagedrc.cjs'],
 };
