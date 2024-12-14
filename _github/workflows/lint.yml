@@ -1,4 +1,4 @@
-name: Format and lint
+name: Lint
 on:
   push:
     branches:
@@ -7,20 +7,19 @@ on:
       - '!main'
 
 jobs:
-  format-and-lint:
+  lint:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: ./.github/actions/setup
 
-      - name: Setup bun
-        uses: oven-sh/setup-bun@v1
-
-      - name: Install dependencies
-        run: bun install
-
-      - name: Lint
-        run: bun lint
+      - name: Link
+        run: pnpm install
         env:
           SKIP_VALIDATION: true
+
+      - name: Typecheck
+        run: pnpm tsc --noEmit

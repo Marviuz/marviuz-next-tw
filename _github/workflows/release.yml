@@ -12,19 +12,10 @@ jobs:
     name: Create a PR for release workflow
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout Repo
-        uses: actions/checkout@v3
-
-      - name: Setup bun
-        uses: oven-sh/setup-bun@v1
-
-      - name: Install dependencies
-        run: bun install
-
-      - name: Lint
-        run: bun lint
-        env:
-          SKIP_VALIDATION: true
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: ./.github/actions/setup
 
       - name: Create Release PR
         id: changesets
@@ -32,7 +23,7 @@ jobs:
         with:
           commit: 'chore(release): version app'
           title: 'chore(release): version app'
-          publish: bun changeset publish
+          publish: pnpm changeset publish
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           HUSKY: 0
