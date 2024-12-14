@@ -4,31 +4,35 @@
   "private": true,
   "scripts": {
     "build": "next build",
-    "dev": "next dev",
+    "dev": "next dev --turbopack",
     "lint": "next lint",
+    "prepare": "husky",
     "start": "next start"
   },
   "dependencies": {
-    "next": "14.2.8",
-    "react": "^18",
-    "react-dom": "^18"
+    "next": "15.1.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
   },
   "devDependencies": {
-    "@next/eslint-plugin-next": "^14.2.8",
+    "@commitlint/cli": "^19.6.0",
+    "@commitlint/config-conventional": "^19.6.0",
+    "@next/eslint-plugin-next": "^15.1.0",
     "@total-typescript/ts-reset": "^0.6.1",
-    "@types/eslint": "^8.56.12",
     "@types/node": "^22",
-    "@types/react": "^18",
-    "@types/react-dom": "^18",
-    "@typescript-eslint/parser": "^7.18.0",
-    "@vercel/style-guide": "^6.0.0",
-    "autoprefixer": "^10.4.20",
-    "eslint": "^8.57.0",
-    "lint-staged": "^15.2.10",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "@vercel/style-guide": "github:appano1/style-guide#canary",
+    "eslint": "^9",
+    "eslint-plugin-boundaries": "^5.0.1",
+    "globals": "^15.13.0",
+    "husky": "^9.1.7",
+    "lint-staged": "^15.2.11",
     "postcss": "^8",
-    "prettier": "^3.3.3",
-    "prettier-plugin-tailwindcss": "^0.6.6",
-    "tailwindcss": "^3.4.10",
+    "prettier": "^3.4.2",
+    "prettier-plugin-tailwindcss": "^0.6.9",
+    "tailwindcss": "^3.4.16",
     "typescript": "^5"
-  }
+  },
+  "packageManager": "pnpm@9.15.0"
 }

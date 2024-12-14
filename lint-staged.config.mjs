@@ -1,4 +1,4 @@
-const path = require('path');
+import path from 'path';
 
 const lint = (filenames) =>
   `next lint --fix --file ${filenames
@@ -7,6 +7,7 @@ const lint = (filenames) =>
 
 const format = 'prettier --write';
 
-module.exports = {
-  '*.{cjs,mjs,js,jsx,ts,tsx,json}': [format, lint],
+export default {
+  '*.{cjs,mjs,js,jsx,ts,tsx}': [format, lint],
+  '*.json': [format],
 };

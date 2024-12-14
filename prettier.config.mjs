@@ -1,8 +1,8 @@
-import vercelPrettier from '@vercel/style-guide/prettier';
+import vercel from '@vercel/style-guide/prettier';
 
 const prettierConfig = {
-  ...vercelPrettier,
-  plugins: [...vercelPrettier.plugins, 'prettier-plugin-tailwindcss'],
+  ...vercel,
+  plugins: [...vercel.plugins, 'prettier-plugin-tailwindcss'],
 };
 
 export default prettierConfig;

@@ -1,3 +1,0 @@
-exec >/dev/tty 2>&1
-
-bun lint-staged --no-stash
